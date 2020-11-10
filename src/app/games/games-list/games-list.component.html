@@ -1,0 +1,50 @@
+<section class="hero">
+    <div class="toolbar" role="banner">
+        <h1 class="title">Game Hub</h1>
+        <div class="spacer">
+          <input class="input" [formControl]="search" placeholder="Enter Game Name" type="text">
+        </div>
+      </div>
+    <div class="container">
+        <div class="container__head">
+            <h1 class="head">{{listOfGames.length}} Games</h1> 
+            <div class="filter">
+                <h2 (click)="sortScore()">
+                  Score
+                </h2>
+                <h2>Platform</h2>
+            </div>
+        </div>
+        <div class="container__main">
+            <div *ngFor="let game of listOfGames" class="card games__list">
+              <div class="image">
+                <img class="img" src="./../../../assets/image/stadia.png" alt="">
+                <div class="top-right ribbon-top-right">
+                  <span>
+                    {{game.score}}
+                  </span>
+                </div>
+                <div *ngIf="game.editors_choice == 'Y'" class="editor">
+                  <span>Editors Choice</span>
+                </div>
+              </div>
+              <div class="details">
+                <div class="details-1">
+                  {{game.title}}
+                </div>
+                <div class="details-2">
+                  <div class="left">
+                    Genere: {{game.genre}}
+                  </div>
+                  <div class="right">
+                    Released: {{game.release_year}}
+                  </div>
+                </div>
+                <div class="details-3">
+                  Platform: {{game.platform}}
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+</section>
